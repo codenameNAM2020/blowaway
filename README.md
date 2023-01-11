@@ -14,7 +14,6 @@
 - Javascript
 - Thymeleaf
 - Bootstrap
-
 ### [BE]
 - Java
 - SpringBoot
