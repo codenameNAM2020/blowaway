@@ -16,10 +16,10 @@ public class BlowController {
     /**
      * Main list View page
      */
-    @GetMapping("/")
+    @GetMapping("")
     public String blowMainList(Model model) {
 
-        model.addAttribute("list", blowService.blowList());
+//        model.addAttribute("list", blowService.blowList());
 
         return "blow/blowList";
     }

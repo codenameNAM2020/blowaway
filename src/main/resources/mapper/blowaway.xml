@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="hello.blowaway.blow.BlowMapper">
+
+    <select id="blowList" resultType="hello.blowaway.blow.BlowDto">
+        SELECT
+            wid
+            , uid
+            , contents
+            , cdate
+            , udate
+            , hit
+            , likes
+        FROM
+            tb_writing
+        ORDER BY cdate
+    </select>
+
+    <select id="selectBlow" resultType="hello.blowaway.blow.BlowDto">
+        SELECT
+            wid
+            , uid
+            , contents
+            , cdate
+            , udate
+            , hit
+            , likes
+        FROM
+            tb_writing
+        WHERE
+            wid = #{wid}
+    </select>
+
+    <insert id="createBlow" parameterType="hello.blowaway.blow.BlowDto">
+        INSERT INTO tb_writing(
+            wid
+            , uid
+            , contents
+            , cdate
+            , hit
+            , likes
+        ) VALUES (
+            #{wid}
+            , #{uid}
+            , #{contents}
+            , NOW()
+            , #{hit}
+            , #{likes}
+        )
+    </insert>
+
+    <update id="updateBlow" parameterType="hello.blowaway.blow.BlowDto">
+        UPDATE tb_writing
+            SET
+                contents = #{contents}
+                , userId = #{userId}
+        WHERE
+            id = #{wid}
+    </update>
+
+    <delete id="deleteBlow" parameterType="hello.blowaway.blow.BlowDto">
+        DELETE
+            FROM tb_writing
+        WHERE
+            wid = #{wid}
+    </delete>
+
+    <update id="updateHit" parameterType="hello.blowaway.blow.BlowDto">
+        UPDATE tb_writing
+            SET
+                hit = hit + 1
+        WHERE
+            id = #{id}
+    </update>
+
+</mapper>
