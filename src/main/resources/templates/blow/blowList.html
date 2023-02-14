@@ -34,34 +34,19 @@
         </div>
     </nav>
 
-<!-- 리스트 -->
-    <div class="col" style="overflow: auto; border: 1px solid; width: 600px; height: 700px; margin: auto">
-        <div class="col" style="border: 1px dotted; width: 500px; height: 150px; margin: auto">
-            <div class="col">
-                <div class="row">
-                    <label>이름</label>
-                </div>
-                <div class="row">
-                    <label>내용</label>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <table class="table">
-<!--        <thead class="thead-dark">-->
-<!--        <tr>-->
-<!--            <th>작성자</th>-->
-<!--            <th>내용</th>-->
-<!--            <th>등록일</th>-->
-<!--        </tr>-->
-<!--        </thead>-->
+        <thead class="thead-dark">
+        <tr>
+            <th>작성자</th>
+            <th>내용</th>
+            <th>등록일</th>
+        </tr>
+        </thead>
         <tbody>
         <tr th:each="item : ${list}">
-<!--            <td th:text="${item.userId}"></td>-->
-            <td><a th:href="'/detail/'+${item.id}" th:text="${item.title}"></a></td>
-            <td th:text="${item.contents}"></td>
-            <td th:text="${#temporals.format(item.regDate, 'yyyy-MM-dd')}"></td>
+            <td th:text="${item.uid}"></td>
+            <td><a th:href="'/detail/'+${item.wid}" th:text="${item.content}"></a></td>
+            <td th:text="${#temporals.format(item.cdate, 'yyyy-MM-dd')}"></td>
         </tr>
         </tbody>
     </table>
@@ -71,14 +56,6 @@
         <a href="/blowAway/create" class="btn btn-secondary btn-lg">작성</a>
     </div>
 </div>
-
-<script type="text/javascript">
-    var blowListDataTbl;
-
-    // $(function (){
-    //
-    // }
-</script>
 
 </body>
 </html>

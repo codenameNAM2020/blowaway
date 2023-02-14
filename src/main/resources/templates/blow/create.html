@@ -27,8 +27,8 @@
     </div>
 </nav>
 
-<div class="container">
-    <form method="post" th:action="@{/create}">
+<form method="post" th:action="@{/create}">
+    <div class="container">
         <div>
             <input class="form-control" type="text" placeholder="이름을 작성해주세요!" style="width: 200px">
             <input class="form-control" type="text" placeholder="새로운 글을 작성해주세요!" style="height: 350px; width: 700px; margin: auto; overflow: auto;">
@@ -36,8 +36,8 @@
                 <button class="btn btn-secondary btn-lg" type="submit" style="width: 100px">등록</button>
             </div>
         </div>
-    </form>
-</div>
+    </div>
+</form>
 
 </body>
 </html>

@@ -19,7 +19,7 @@ public class BlowController {
     @GetMapping("")
     public String blowMainList(Model model) {
 
-//        model.addAttribute("list", blowService.blowList());
+        model.addAttribute("list", blowService.blowList());
 
         return "blow/blowList";
     }

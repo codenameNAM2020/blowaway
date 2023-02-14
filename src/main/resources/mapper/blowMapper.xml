@@ -9,21 +9,21 @@
         SELECT
             wid
             , uid
-            , contents
+            , content
             , cdate
             , udate
             , hit
             , likes
         FROM
             tb_writing
-        ORDER BY cdate
+--         ORDER BY cdate
     </select>
 
     <select id="selectBlow" resultType="hello.blowaway.blow.BlowDto">
         SELECT
             wid
             , uid
-            , contents
+            , content
             , cdate
             , udate
             , hit
@@ -38,14 +38,14 @@
         INSERT INTO tb_writing(
             wid
             , uid
-            , contents
+            , content
             , cdate
             , hit
             , likes
         ) VALUES (
             #{wid}
             , #{uid}
-            , #{contents}
+            , #{content}
             , NOW()
             , #{hit}
             , #{likes}
@@ -55,10 +55,11 @@
     <update id="updateBlow" parameterType="hello.blowaway.blow.BlowDto">
         UPDATE tb_writing
             SET
-                contents = #{contents}
+                content = #{content}
                 , userId = #{userId}
+                , udate = #{udate}
         WHERE
-            id = #{wid}
+            wid = #{wid}
     </update>
 
     <delete id="deleteBlow" parameterType="hello.blowaway.blow.BlowDto">
@@ -73,7 +74,7 @@
             SET
                 hit = hit + 1
         WHERE
-            id = #{id}
+            id = #{wid}
     </update>
 
 </mapper>
