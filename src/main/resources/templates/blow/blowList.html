@@ -34,22 +34,17 @@
         </div>
     </nav>
 
-    <table class="table">
-        <thead class="thead-dark">
-        <tr>
-            <th>작성자</th>
-            <th>내용</th>
-            <th>등록일</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="item : ${list}">
-            <td th:text="${item.name}"></td>
-            <td><a th:href="'/detail/'+${item.wid}" th:text="${item.content}"></a></td>
-            <td th:text="${#temporals.format(item.cdate, 'yyyy-MM-dd')}"></td>
-        </tr>
-        </tbody>
-    </table>
+    <!-- list -->
+    <div th:each="item : ${list}" align="middle">
+        <div class="card border mb-3" style="max-width: 700px;" align="left">
+            <div class="card-body">
+                <h5 class="card-title" th:text="${item.name}"></h5>
+                <p class="card-text" th:text="${item.content}"></p>
+                <div th:text="${#temporals.format(item.cdate, 'yyyy-MM-dd')}"></div>
+                <a th:href="'/detail/'+${item.wid}" class="btn btn-primary">More</a>
+            </div>
+        </div>
+    </div>
 
 <!-- 작성 버튼 -->
     <div align="right">
