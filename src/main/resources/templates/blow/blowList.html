@@ -44,7 +44,7 @@
         </thead>
         <tbody>
         <tr th:each="item : ${list}">
-            <td th:text="${item.uid}"></td>
+            <td th:text="${item.name}"></td>
             <td><a th:href="'/detail/'+${item.wid}" th:text="${item.content}"></a></td>
             <td th:text="${#temporals.format(item.cdate, 'yyyy-MM-dd')}"></td>
         </tr>

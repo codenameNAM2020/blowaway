@@ -7,16 +7,19 @@
 
     <select id="blowList" resultType="hello.blowaway.blow.BlowDto">
         SELECT
-            wid
-            , uid
-            , content
-            , cdate
-            , udate
-            , hit
-            , likes
+            tw.wid
+            , tw.uid
+            , tu.name
+            , tw.content
+            , tw.cdate
+            , tw.udate
+            , tw.hit
+            , tw.likes
         FROM
-            tb_writing
---         ORDER BY cdate
+            tb_users tu, tb_writing tw
+        where
+            tu.uid = tw.uid
+--         ORDER BY tw.wid
     </select>
 
     <select id="selectBlow" resultType="hello.blowaway.blow.BlowDto">
