@@ -64,7 +64,7 @@ public class BlowController {
 
         model.addAttribute("update", blowService.selectBlow(wid));
 
-        return "blow/detail";
+        return "blow/update";
     }
 
     /**
@@ -75,7 +75,7 @@ public class BlowController {
 
         blowService.updateBlow(blowDto);
 
-        return "redirect:/blow/blowList";
+        return "redirect:/blowAway";
     }
 
     /**
