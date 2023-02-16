@@ -36,14 +36,13 @@
 
     <!-- list -->
     <div th:each="item : ${list}" align="middle">
-        <div class="card border mb-3" style="max-width: 700px;" align="left">
+        <a th:href="'/blowAway/detail/'+${item.wid}" class="card border mb-3 text-decoration-none" style="max-width: 700px; color:black" align="left">
             <div class="card-body">
                 <h5 class="card-title" th:text="${item.name}"></h5>
                 <p class="card-text" th:text="${item.content}"></p>
                 <div th:text="${#temporals.format(item.cdate, 'yyyy-MM-dd')}"></div>
-                <a th:href="'/detail/'+${item.wid}" class="btn btn-primary">More</a>
             </div>
-        </div>
+        </a>
     </div>
 
 <!-- 작성 버튼 -->

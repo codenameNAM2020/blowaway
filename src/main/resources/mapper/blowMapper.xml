@@ -13,8 +13,6 @@
             , tw.content
             , tw.cdate
             , tw.udate
-            , tw.hit
-            , tw.likes
         FROM
             tb_users tu, tb_writing tw
         where
