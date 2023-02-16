@@ -40,19 +40,17 @@
 
     <insert id="createBlow" parameterType="hello.blowaway.blow.BlowDto">
         INSERT INTO tb_writing(
-            wid
-            , uid
+            uid
             , content
             , cdate
             , hit
             , likes
         ) VALUES (
-            #{wid}
-            , #{uid}
+            #{uid}
             , #{content}
             , NOW()
-            , #{hit}
-            , #{likes}
+            , 0
+            , 0
         )
     </insert>
 

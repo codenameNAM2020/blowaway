@@ -40,7 +40,7 @@ public class BlowController {
 
         blowService.createBlow(blowDto);
 
-        return "redirect:/blow/blowList";
+        return "redirect:/blowAway";
     }
 
 
