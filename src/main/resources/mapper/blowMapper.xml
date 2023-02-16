@@ -22,16 +22,19 @@
 
     <select id="selectBlow" resultType="hello.blowaway.blow.BlowDto">
         SELECT
-            wid
-            , uid
-            , content
-            , cdate
-            , udate
-            , hit
-            , likes
+            tw.wid
+             , tw.uid
+             , tu.name
+             , tw.content
+             , tw.cdate
+             , tw.udate
+             , tw.hit
+             , tw.likes
         FROM
-            tb_writing
-        WHERE
+            tb_users tu, tb_writing tw
+        where
+            tu.uid = tw.uid
+        AND
             wid = #{wid}
     </select>
 
@@ -75,7 +78,7 @@
             SET
                 hit = hit + 1
         WHERE
-            id = #{wid}
+            wid = #{wid}
     </update>
 
 </mapper>

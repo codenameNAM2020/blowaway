@@ -81,13 +81,12 @@ public class BlowController {
     /**
      * delete
      */
-    @PostMapping("/delete")
-    public String blowDelete(Integer wid, RedirectAttributes rttr) {
+    @PostMapping("/delete/{wid}")
+    public String blowDelete( @PathVariable Integer wid) {
 
         blowService.deleteBlow(wid);
-        rttr.addFlashAttribute("msg", "success");
 
-        return "redirect:/blow/blowList";
+        return "redirect:/blowAway";
     }
 
 }
