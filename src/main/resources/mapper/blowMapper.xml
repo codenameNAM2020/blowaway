@@ -8,7 +8,7 @@
     <select id="blowList" resultType="hello.blowaway.blow.BlowDto">
         SELECT
             tw.wid
-            , tw.uid
+            , tw.uno
             , tu.name
             , tw.content
             , tw.cdate
@@ -16,14 +16,14 @@
         FROM
             tb_users tu, tb_writing tw
         where
-            tu.uid = tw.uid
+            tu.uno = tw.uno
 --         ORDER BY tw.wid
     </select>
 
     <select id="selectBlow" resultType="hello.blowaway.blow.BlowDto">
         SELECT
             tw.wid
-             , tw.uid
+             , tw.uno
              , tu.name
              , tw.content
              , tw.cdate
@@ -33,20 +33,20 @@
         FROM
             tb_users tu, tb_writing tw
         where
-            tu.uid = tw.uid
+            tu.uno = tw.uno
         AND
             wid = #{wid}
     </select>
 
     <insert id="createBlow" parameterType="hello.blowaway.blow.BlowDto">
         INSERT INTO tb_writing(
-            uid
+            uno
             , content
             , cdate
             , hit
             , likes
         ) VALUES (
-            #{uid}
+            #{uno}
             , #{content}
             , NOW()
             , 0
