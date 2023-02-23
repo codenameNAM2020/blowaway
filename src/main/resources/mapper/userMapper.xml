@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="hello.blowaway.login.UserMapper">
+
+    <!-- 로그인 -->
+    <select id="getUserAccount" parameterType="String" resultType="hello.blowaway.login.UserVo">
+        SELECT
+            uno as userNo
+            , uid as userId
+            , password as userPw
+            , name as userName
+            , auth as userAuth
+            , cdate as appendDate
+            , udate as updateDate
+        FROM
+            tb_users
+        WHERE
+            uid = #{userId}
+    </select>
+
+    <!-- 회원가입 -->
+    <insert id="saveUser" parameterType="hello.blowaway.login.UserVo">
+        INSERT INTO tb_users(
+            uid
+            , password
+            , name
+            , auth
+            , cdate
+            , udate
+        ) VALUES(
+            #{userId}
+            , #{userPw}
+            , #{userName}
+            , #{userAuth}
+            , #{appendDate}
+            , #{updateDate}
+        );
+    </insert>
+
+</mapper>
